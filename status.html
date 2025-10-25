@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Track Grievance - GRMS</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">🎯 GRMS</div>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="submit.html">Submit Grievance</a></li>
+          <li><a href="status.html" class="active">Track Status</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="container">
+      <h2 style="text-align: center; margin-bottom: 2rem">
+        Track Your Grievance
+      </h2>
+      <div class="form-container">
+        <div class="form-group">
+          <label for="ticketId">Ticket ID</label>
+          <input
+            type="text"
+            id="ticketId"
+            placeholder="Enter your ticket ID (e.g., GRV2025001)"
+          />
+        </div>
+        <button onclick="trackGrievance()" class="btn full">
+          Track Status
+        </button>
+      </div>
+
+      <div id="trackResults" style="margin-top: 3rem"></div>
+
+      <h3 style="margin: 3rem 0 1.5rem 0">Sample Recent Grievances</h3>
+
+      <div class="status-card">
+        <h4>Infrastructure - Broken Elevator</h4>
+        <p><strong>Ticket ID:</strong> GRV2025001</p>
+        <p>
+          <strong>Status:</strong>
+          <span class="status-badge status-resolved">Resolved</span>
+        </p>
+        <p><strong>Resolution:</strong> Elevator repaired successfully.</p>
+      </div>
+
+      <div class="status-card">
+        <h4>Billing - Incorrect Charges</h4>
+        <p><strong>Ticket ID:</strong> GRV2025002</p>
+        <p>
+          <strong>Status:</strong>
+          <span class="status-badge status-progress">In Progress</span>
+        </p>
+        <p><strong>Update:</strong> Finance team reviewing your account.</p>
+      </div>
+    </div>
+
+    <footer>
+      <p style="margin-bottom: 10px;">Made By Anurag More & Raj Tangadi</p>  
+      <p>
+        &copy; 2025 Grievance Redressal Management System. All rights reserved.
+      </p>
+    </footer>
+
+    <script>
+      function trackGrievance() {
+        const ticketId = document.getElementById("ticketId").value.trim();
+        const resultsDiv = document.getElementById("trackResults");
+        if (!ticketId) {
+          alert("Please enter a valid Ticket ID");
+          return;
+        }
+
+        resultsDiv.innerHTML = `
+        <div class="status-card">
+          <h4>Grievance Details</h4>
+          <p><strong>Ticket ID:</strong> ${ticketId}</p>
+          <p><strong>Status:</strong> <span class="status-badge status-progress">In Progress</span></p>
+          <p><strong>Last Updated:</strong> ${new Date().toLocaleDateString()}</p>
+          <p>Your grievance is currently under review.</p>
+        </div>
+      `;
+      }
+    </script>
+  </body>
+</html>
+

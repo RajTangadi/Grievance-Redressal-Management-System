@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit Grievance - GRMS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">🎯 GRMS</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="submit.html" class="active">Submit Grievance</a></li>
+        <li><a href="status.html">Track Status</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2 style="text-align: center; margin-bottom: 2rem;">Submit Your Grievance</h2>
+    <div class="form-container">
+      <form id="grievanceForm">
+        <div class="form-group">
+          <label for="name">Full Name *</label>
+          <input type="text" id="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number *</label>
+          <input type="tel" id="phone" required>
+        </div>
+        <div class="form-group">
+          <label for="category">Category *</label>
+          <select id="category" required>
+            <option value="">Select Category</option>
+            <option value="service">Service Quality</option>
+            <option value="billing">Billing Issues</option>
+            <option value="staff">Staff Behavior</option>
+            <option value="infrastructure">Infrastructure</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="priority">Priority Level *</label>
+          <select id="priority" required>
+            <option value="">Select Priority</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+            <option value="urgent">Urgent</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="description">Description *</label>
+          <textarea id="description" required placeholder="Please provide detailed information about your grievance..."></textarea>
+        </div>
+        <button type="submit" class="btn full">Submit Grievance</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p style="margin-bottom: 10px;">Made By Anurag More & Raj Tangadi</p>
+    <p>&copy; 2025 Grievance Redressal Management System. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('grievanceForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const ticketId = 'GRV' + new Date().getFullYear() + String(Math.floor(Math.random() * 1000)).padStart(3, '0');
+      alert('✅ Grievance submitted successfully!\n\nYour Ticket ID: ' + ticketId + '\n\nPlease save this ID to track your grievance status.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
+
+
+
